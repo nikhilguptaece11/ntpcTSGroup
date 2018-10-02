@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang=''>
+<head>
+   <meta charset='utf-8'>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="stylesscroller.css">
+   <link rel="stylesheet" href="slideshow.css">
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+   <!--<script src="script.js"></script>
+   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   -->
+   
+   <title>Give me a name!!</title>
+   
+   
+   
+<style>
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #cccccc;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+#PhotoGalleryData span{ 
+text-align: center;
+
+color: #ff0000;
+}
+.search a:hover {background-color: #ddd;}
+
+.search {    
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+	overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.search a {
+    color: black;
+    padding: 6px 6px;
+    text-decoration: none;
+    display: block;
+}
+#inner {
+
+}
+
+hr.myhrline{
+     margin: 10px;
+  }
+h2.submenu {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  font-size: 14px;
+  line-height: 15px;
+  text-transform: uppercase;
+  text-align: left;
+}
+	
+	
+.leftbody {
+float: left; border-style: solid;  
+
+		    height: 100%;
+		    line-height: 30px;
+		    border: 0px solid green;
+		    overflow: Hidden;
+		    padding: 1px 0;
+			margin-left: 30px;
+			  left: 1%; 
+  top: 45px; 
+  width: 85%; 
+  z-index: 1;
+
+
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+	<IMG SRC="ntpc-logo.svg" WIDTH="100" HEIGHT="60" BORDER="0"  ALIGN=LEFT>
+	<!--<IMG SRC="turbine_heading.png" WIDTH="100" HEIGHT="60" BORDER="0"  vspace="5" ALIGN=RIGHT> -->
+	<IMG SRC="ntpc-logo.svg" WIDTH="100" HEIGHT="60" BORDER="0" vspace="5" ALIGN=RIGHT> 
+
+	
+
+	<CENTER> <bgcolor="#0000ff" loop="-2"  width="100%">
+	
+	<B><H1> <FONT color="#000090" style="FONT-SIZE: 34px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif">
+Project Engineering -Turbine & System Group</FONT> </H1></B>
+
+	
+         </CENTER>
+	
+	
+	<HR class="myhrline" WIDTH="100%" COLOR="#d80041" SIZE="3">
+
+	<CENTER><H3><MARQUEE id="Welcome" bgcolor="#0080ff" loop="-2" scrollamount="4" width="100%" 
+	style="FONT-SIZE: 22px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif">
+	Welcome to Turbine & System Group - Project Engineering!</MARQUEE></H3></CENTER>
+	
+<div id='mainmenu'>
+<ul>
+   <li class='active'><a ><span id ="Home" onclick="showBlock(this)">Home</span></a></li>
+   <li class='has-sub'><a ><span>Our Team</span></a>
+      <ul>
+         <li><a ><span id ="OrganisationChart" onclick="showBlock(this)">Organisation Chart</span></a></li>
+         <li><a ><span id ="PhotoGallery" onclick="showBlock(this)">Photo Gallery</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a ><span>Techincal Details</span></a>
+      <ul>
+         <li><a ><span id ="TechincalSpecifications" onclick="showBlock(this)">Techincal Specifications</span></a></li>
+         <li><a ><span id ="HandBooks" onclick="showBlock(this)">Hand Books</span></a></li>
+		 
+      </ul>
+   </li>
+   
+   <li class='has-sub'><a ><span>Papers & Presentations</span></a>
+      <ul>
+         <li><a ><span id ="Papers" onclick="showBlock(this)">Papers</span></a></li>
+         <li><a ><span id ="Presentations" onclick="showBlock(this)">Presentations</span></a></li>
+      </ul>
+   </li>
+   
+   <li class='active'><a ><span id ="Codes" onclick="showBlock(this)">Codes & Standards</span></a></li>
+   
+   <li class='has-sub'><a ><span>Softwares</span></a>
+      <ul>
+         <li><a ><span id ="Cvcalculator" onclick="showBlock(this)">CV Calculator</span></a></li>
+         <li><a ><span id ="SteamTable" onclick="showBlock(this)">Steam Table</span></a></li>
+		 <li><a ><span id ="UnitConvertor" onclick="showBlock(this)">Unit Convertor</span></a></li>
+         <li><a ><span id ="HeatBalance" onclick="showBlock(this)">Heat Balance</span></a></li>
+      </ul>
+   </li>
+   
+
+   <li class='active'><a ><span id ="Faqs" onclick="showBlock(this)">FAQs</span></a></li>
+   
+   <li class='active'><a ><span id ="Feedback" onclick="showBlock(this)">Feedback</span></a></li>
+
+   <li class='last'><a ><span id ="Contact" onclick="showBlock(this)">Contact</span></a></li>
+</ul>
+</div>
+
+
+<div style="width:100%;">
+
+<h2 id= "submenu" class="submenu" style="float:left; width:60%">Home</h2>
+
+<div style="float:right; width:30%">
+	<input id="myInput" type="text" placeholder="Search.." style="margin-top:2px;"> </input>
+		<ul id="myList" class ="search" style="display:none;">
+		  	<a id ="Home" onclick="showBlock(this)">Home</a>
+			<a id ="OrganisationChart" onclick="showBlock(this)">Organisation Chart</a>
+			<a id ="PhotoGallery" onclick="showBlock(this)">Photo Gallery</a>
+			
+			<a id ="HandBooks" onclick="showBlock(this)">Hand Books</a>
+			
+	
+			<a id ="Papers" onclick="showBlock(this)">Papers</a>
+			<a id ="Presentations" onclick="showBlock(this)">Presentations</a>
+	
+			<a id ="Codes" onclick="showBlock(this)">Codes & Standards</a>
+	
+			<a id ="Cvcalculator" onclick="showBlock(this)">CV Calculator</a>
+			<a id ="SteamTable" onclick="showBlock(this)">Steam Table</a>
+			<a id ="UnitConvertor" onclick="showBlock(this)">Unit Convertor</a>
+			<a id ="HeatBalance" onclick="showBlock(this)">Heat Balance</a>
+	
+			<a id ="Faqs" onclick="showBlock(this)">FAQs</a>
+	
+			<a id ="Feedback" onclick="showBlock(this)">Feedback</a>
+	
+			<a id ="Contact" onclick="showBlock(this)">Contact</a>
+		</ul>
+</div>
+</div>
+
+
+<div id ='mainbody' class ="mainbody">
+<div id ="leftbody" class = "leftbody" style="">
+
+
+	<div id="HomeData" >
+		<div id="loading" ></div>
+		<video controls loop  id="video" width="100%" muted="muted">
+		  <!--<source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4">-->
+		  <source src="video.mp4" type="video/mp4">
+			
+		</video>
+	</div>
+	
+	<div id="OrganisationChartData">
+		this is the block for  OrganisationChart
+	</div>
+
+	<div id="PhotoGalleryData">
+	<span align="center" id="ImageTitle"></span>
+	<div class="w3-content w3-display-container">
+		<img class="mySlides" src="1.jpeg" style="width:100%;height:100%">
+		<img class="mySlides" src="2.jpeg" style="width:100%;height:100%">
+		<img class="mySlides" src="3.jpeg" style="width:100%;height:100%">
+		<img class="mySlides" src="4.jpeg" style="width:100%;height:100%">
+		<img class="mySlides" src="5.jpeg" style="width:100%;height:100%">
+		<img class="mySlides" src="7.jpeg" style="width:100%;height:100%">
+
+		<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+		<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+	</div>
+	</div>
+	
+	
+	<div id="TechincalSpecificationsData">
+		this is the block for  Techincal Specifications
+		The Mahābhārata is an epic legendary narrative of the Kurukṣetra War and the fates of the Kaurava and the Pāṇḍava princes. It also contains philosophical and devotional material, such as a discussion of the four "goals of life" or puruṣārtha (12.161). Among the principal works and stories in the Mahābhārata are the Bhagavad Gita, the story of Damayanti, an abbreviated version of the Rāmāyaṇa, and the story of Ṛṣyasringa, often considered as works in their own right.
+	</div>
+
+	<div id="HandBooksData">
+		<p>Please click on the link below to download the attachment.<p>
+		<a href="downloads/660MW.pdf" target="_blank" download>
+		  660MW Turbine Hand Book
+		</a>
+		<br>
+		<a href="downloads/800MW.pdf" target="_blank" download>
+		  800MW Turbine Hand Book
+		</a>
+		<br>
+		<a href="downloads/ACC.pdf" target="_blank" download>
+		  ACC Hand Book
+		</a>
+</div>
+	
+	<div id="PaperData" style ="width:100%;height:500px;">
+		<embed id ='pdf' src="downloads/Papers.pdf"  height="100%;" width="100%"></embed>
+		
+	</div>
+	
+	<div id="PresentationData" style ="width:100%;height:500px;">
+		<embed id ='pdf' src="downloads/Presentations.pdf"  height="100%;" width="100%"></embed>
+	</div>
+	
+	<div id="CodeData" style ="width:100%;height:500px;">
+		<embed id ='pdf' src="downloads/Codesandstandards.pdf" height="100%;" width="100%"></embed>
+	</div>
+	<div id="CVCalculatorData">
+		this is the block for  CVCalculatorData Presentations, this is some random data
+	</div>
+	<div id="SteamTableData" style='font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  font-size: 25px;'>
+		<br>
+		<a href="downloads/SteamTab V2.0.exe" download>Click Here </a>
+		to download SteamTable Application.
+	</div>
+	<div id="UnitConverterData">
+		this is the block for  UnitConverterData Presentations, this is some random data
+	</div>
+	<div id="HeatTableData">
+		this is the block for  HeatTableData Presentations, this is some random data
+	</div>
+	<div id="FaqData"  style='font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  font-size: 25px;'>
+	<br>
+	<br>
+	<br>
+	
+		This section will be updated soon!
+		<br>
+		
+		<br>
+		
+		Stay tuned.
+		<br>
+		<br>
+		
+	</div>
+	<div id="FeedbackData" style ="width:100%;height:500px;">
+		<embed id ='pdf' src="downloads/FeedBack.pdf"  height="100%;" width="100%"></embed>
+	</div>
+	
+	<div id="ContactData">
+	
+	<table>
+  <thead>
+    <tr>
+      <th>S. No.</th>
+	  <th>Name</th>
+	  <th>Designation</th>
+      <th>Email</th>
+      <th>Mobile</th>
+	  <th>Extension</th>
+    </tr>
+  </thead>
+  <tbody id="myTable">
+    <tr>
+      <td>1</td>
+      <td>Madhukar Anand</td>
+      <td>CGM</td>
+	  <td>madhukaranand@ntpc.co.in</td>
+      <td>9650991924</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Arnada Prasad Samal</td>
+      <td>GH & AGM</td>
+	  <td>apsamal@ntpc.co.in</td>
+      <td>9650991288</td>
+      <td>6526</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Akhil Agarwal</td>
+      <td>AGM</td>
+	  <td>akhilagarwal@ntpc.co.in</td>
+      <td>9650991280</td>
+      <td>6512</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Yogesh Kumar</td>
+      <td>DGM</td>
+	  <td>yogeshkumar01@ntpc.co.in</td>
+      <td>9650997850</td>
+      <td>6553</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Tapas Mondal</td>
+      <td>Sr.Manager</td>
+	  <td>tapasmondal@ntpc.co.in</td>
+      <td>9650999685</td>
+      <td>8520</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Pawan Krishan Dwivedi</td>
+      <td>Sr.Manager</td>
+	  <td>pawandwivedi@ntpc.co.in</td>
+      <td>9650998869</td>
+      <td>8508</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Satyendra Kumar Singh</td>
+      <td>Sr.Manager</td>
+	  <td>satyendraksingh@ntpc.co.in</td>
+      <td>9650993470</td>
+      <td>8577</td>
+    </tr>
+	<tr>
+      <td>8</td>
+      <td>Ashwini Kumar Verma</td>
+      <td>Sr.Manager</td>
+	  <td>ashwinikumarverma@ntpc.co.in</td>
+      <td>9650993162</td>
+      <td>8516</td>
+    </tr>
+	  <tr>
+      <td>9</td>
+      <td>Bibek Kumar</td>
+      <td>Manager</td>
+	  <td>bibekkumar@ntpc.co.in</td>
+      <td>9650993332</td>
+      <td>8501</td>
+    </tr>
+	<tr>
+      <td>10</td>
+      <td>Sriyanka Agrawal</td>
+      <td>Manager</td>
+	  <td>sriyankaagrawal@ntpc.co.in</td>
+      <td>9650999094</td>
+      <td>8507</td>
+    </tr>
+	<tr>
+      <td>11</td>
+      <td>P. D. Joshi</td>
+      <td>Manager</td>
+	  <td>pushkardattjoshi@ntpc.co.in</td>
+      <td>9650991008</td>
+      <td>6523</td>
+    </tr>
+	<tr>
+      <td>12</td>
+      <td>Apurva Srivastav</td>
+      <td>Dy.Manager</td>
+	  <td>apurva@ntpc.co.in</td>
+      <td>9650998550</td>
+      <td>6513</td>
+    </tr>
+	
+	
+	
+  </tbody>
+</table>
+  </div>
+</div>
+
+<div id ="rightbody" class = "rightbody"  style="float: right; margin : 20px; display:none;">
+<div class="wrapper"><!-- Main Container -->
+  
+  <div class="box"><!-- Div that will hold the UL -->
+   <div class="scroll">
+     <ul>
+      <li>This is where all the updates will show</li>
+     </ul>
+     <ul>
+      <li>this is the first update..</li>
+      <li>Add more content here if there is two lines to be shown</li>
+      <li>Ohh Add third here if needed</li>
+     </ul>
+     <ul>
+      <li>Now this is a real update</li>
+      <li>Sry..but i dnt know what update to show</li>
+      <li>third line in an update is such a waste, as i do not knw really what the update is!!</li>
+     </ul>
+     <ul>
+      <li>Last sample data</li>
+      <li>And he really doesn't know what he is doing. But hey, he's trying, so... </li>
+     </ul>
+   </div>
+  </div><!-- End Box -->
+  
+</div><!-- End Main Container -->
+
+</div>
+</div>
+
+
+<script>
+
+
+(function(){
+
+function scroller() {
+
+  var scroll = $('div.scroll');// Sets the div with a class of scroll as a variable
+  
+  var height = scroll.height(); // Gets the height of the scroll div
+  
+  var topAdj = -height-30; /* '-height' turns the height                   of the UL into a negative #, 
+               * '- 50' subtracts an extra 50 pixels from the height of 
+        			 * the div so that it moves the trail of the UL higher to 
+							 * the top of the div before the animation                ends
+							 */
+	
+	scroll.animate({
+		'top' : [topAdj, 'linear'] 
+	}, 11000, function(){
+		scroll.css('top', 80); //resets the top position of the Ul for the next cycle
+		scroller(); // Recalls the animation cycle to begin.
+	});}
+	
+scroller();
+
+})();
+
+//for PhotoGallery
+
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+
+   
+	
+var Parentmap = new Map([["OrganisationChart","Our Team"],["PhotoGallery" ,"Our Team"], 
+        ["TechincalSpecifications", "Techincal Details"], ["HandBooks", "Techincal Details"], ["TechnicalPresentations", "Techincal Details"],
+		["Papers","Papers & Presentations"],["Presentations" ,"Papers & Presentations"],
+		["Cvcalculator","Softwares"],["SteamTable" ,"Softwares"],["UnitConvertor","Softwares"],["HeatBalance" ,"Softwares"],
+		]);
+
+var Namemap = new Map([["Home", "Home"],
+["OrganisationChart","Organisation Chart"],["PhotoGallery" ,"Photo Gallery"],
+ ["TechincalSpecifications" ,"Techincal Specifications"],["HandBooks", "Hand Books"], ["TechnicalPresentations", "Technical Presentations"],
+ ["Papers","Papers"],["Presentations" ,"Presentations"],
+ ["Codes" ,"Codes & Standards"],
+ ["Cvcalculator","CV Calculator"],["SteamTable" ,"Steam Table"],["UnitConvertor","Unit Convertor"],["HeatBalance" ,"Heat Balance"],
+["Feedback" ,"Feedback"],["Faqs" ,"FAQs"],
+		["Contact","Contact"]
+		]);
+		
+		
+var Divmap = new Map([["Home", "HomeData"],
+["OrganisationChart","OrganisationChartData"],["PhotoGallery" ,"PhotoGalleryData"],
+["TechincalSpecifications" ,"TechincalSpecificationsData"], 
+        ["HandBooks", "HandBooksData"], ["TechnicalPresentations", "TechnicalPresentationsData"],
+		["Papers","PaperData"],["Presentations" ,"PresentationData"],
+		["Codes" ,"CodeData"],
+		["Cvcalculator","CVCalculatorData"],["SteamTable" ,"SteamTableData"],["UnitConvertor","UnitConverterData"],["HeatBalance" ,"HeatTableData"],
+		["Feedback" ,"FeedbackData"],["Faqs" ,"FaqData"],
+		["Contact","ContactData"]
+		]);
+		
+function getMenu(id)
+{
+
+if((Parentmap.has(id))==false)
+return Namemap.get(id);	
+else
+return Parentmap.get(id) + " << " + Namemap.get(id);
+return Parentmap.get(id) + " << " + Namemap.get(id);
+}
+function showBlock(s)
+{
+//window.alert(Parentmap.get(s.id) + '	<<<	' + s.id);
+document.getElementById("submenu").innerHTML = getMenu(s.id);
+$("#leftbody").children().hide();
+
+$('#'+Divmap.get(s.id)).show();
+
+
+var compareResult = s.id.localeCompare("Home");
+
+if (compareResult ==0) {
+    //When home is clicked
+	$('#video')[0].play();
+	$('#Welcome').show();
+	document.getElementById("leftbody").style.width = "60%";
+	
+}
+else
+{
+	//If any other tab is clicked, need to pause the video.
+	document.getElementById("leftbody").style.width = "80%";
+	$('#video')[0].pause();
+	$('#video')[0].currentTime = 0;
+	
+	$('#rightbody').hide();
+	$('#Welcome').hide();
+	
+}
+			
+}
+
+
+( function( $ ) {
+$( document ).ready(function() {
+
+// Cache the elements we'll need
+var menu = $('#mainmenu');
+var menuList = menu.find('ul:first');
+var listItems = menu.find('li').not('#responsive-tab');
+
+// Create responsive trigger
+menuList.prepend('<li id="responsive-tab"><a href="#">Menu</a></li>');
+
+// Toggle menu visibility
+menu.on('click', '#responsive-tab', function(){
+	listItems.slideToggle('fast');
+	listItems.addClass('collapsed');
+	
+});
+document.getElementById("submenu").innerHTML = "Home";
+document.getElementById("leftbody").style.width = "60%";
+//from old .ready ffile
+
+		 $("#leftbody").children().hide();
+		 $('#HomeData').show();
+		 $('#rightbody').show();
+		 
+		 $('#video')[0].play();
+			
+//Code for search			
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myList a").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+  
+   $("#myInput").on("focus", function() {
+	$("#myList").show();
+  });
+  
+   $("#myInput").on("blur", function() {
+	$("#myList").hide();
+   
+  });
+});
+} )( jQuery );
+
+
+</script>
+</body>
+<html>
